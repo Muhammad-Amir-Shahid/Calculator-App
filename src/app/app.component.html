@@ -1,6 +1,17 @@
 <div class="calculator">
+  <div class="theme-toggle">
+    <span>Calculator</span>
+    <div class="theme-selector">
+      <span>1</span><span>2</span><span>3</span>
+      <label class="switch">
+        <input type="checkbox" (change)="toggleTheme()" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
   <div class="calculator-display">
-    <input type="text" [formControl]="display" [disabled]="true" />
+    <input type="text" class="screen" [formControl]="display" [disabled]="true" />
   </div>
 
   <div class="calculator-buttons">

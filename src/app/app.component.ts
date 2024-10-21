@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'calculator-app';
@@ -33,6 +33,7 @@ export class AppComponent {
   ];
   operator = '';
   firstOperand: number | null = null;
+  themeIndex = 1;
 
   constructor(private calculatorService: CalculatorService) {}
 
@@ -68,5 +69,11 @@ export class AppComponent {
     this.display.setValue('');
     this.firstOperand = null;
     this.operator = '';
+  }
+
+  toggleTheme() {
+    this.themeIndex = (this.themeIndex % 3) + 1;
+    document.body.classList.remove('theme-1', 'theme-2', 'theme-3');
+    document.body.classList.add(`theme-${this.themeIndex}`);
   }
 }
